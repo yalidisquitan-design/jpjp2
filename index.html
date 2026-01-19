@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; connect-src 'self' https://www.google-analytics.com https://www.googletagmanager.com; img-src 'self' data: https:; style-src 'self' 'unsafe-inline'; frame-ancestors 'none'; base-uri 'self'; form-action 'self';">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-Frame-Options" content="DENY">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>AI整理のマーケットサマリーを無料配信 | MarketSync AI</title>
+    <meta name="description" content="AIが市場情報を自動整理し、5分で読めるサマリーを無料でお届けします。">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="MarketSync AI">
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <link rel="preload" href="logo.jpg" as="image">
+    <link rel="dns-prefetch" href="https://tokyoq.pro">
+    <style>
+        :root{--c-bg:#f0f9ff;--c-text:#111827;--c-gray:#374151;--c-light:#6b7280;--c-cyan:#0891b2;--c-cyan-light:#22d3ee;--c-border:#e5e7eb;--c-green:#4ade80}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;background:var(--c-bg);color:var(--c-text);min-height:100vh;padding:1rem;line-height:1.4}
+        .container{max-width:450px;margin:0 auto;text-align:center;padding:2rem 1rem;background:var(--c-bg) url(logo.jpg)center top/contain no-repeat;border-radius:16px;position:relative}
+        .container>*{position:relative;z-index:1}
+        h1{font-size:1.6rem;font-weight:700;margin:13rem 0 1rem;color:var(--c-cyan);line-height:1.4;letter-spacing:-.02em}
+        .subtitle{font-size:.88rem;color:var(--c-gray);margin-bottom:1.5rem}
+        .btn,.result-btn,.view-btn{display:inline-block;padding:.75rem 1.6rem;background:linear-gradient(135deg,#06b6d4,var(--c-cyan));color:#fff;border:0;border-radius:50px;font-size:.88rem;font-weight:600;cursor:pointer;text-decoration:none}
+        .btn{margin-bottom:.5rem}
+        .view-btn{width:100%;padding:.8rem;border-radius:10px;font-size:.9rem;display:block}
+        .features{display:flex;justify-content:space-around;flex-wrap:wrap;gap:1rem;margin:2rem 0;padding:0 .5rem}
+        .feature{flex:0 0 calc(50% - .5rem);min-width:100px;max-width:180px}
+        .feature-icon{font-size:1.8rem;margin-bottom:.6rem;display:flex;justify-content:center;align-items:center}
+        .feature-text{font-size:.75rem;color:var(--c-gray);font-weight:500}
+        .disclaimer{font-size:.68rem;color:var(--c-light);margin-top:2rem;line-height:1.4;padding:0 1rem}
+        #interestSection{margin-top:3rem;padding-top:1.5rem;border-top:1px solid var(--c-border)}
+        #interestSection h2{font-size:1.3rem;font-weight:700;margin-bottom:1.5rem;color:var(--c-cyan-light);letter-spacing:-.01em}
+        .options{display:flex;flex-direction:column;gap:1.2rem;margin-bottom:1.5rem;align-items:center}
+        .option-card{padding:1.2rem .5rem;text-align:left;max-width:100%}
+        .option-title{font-size:1.05rem;margin-bottom:.7rem;color:var(--c-text);font-weight:600;text-align:center}
+        .option-example,.option-summary{color:var(--c-gray);margin-bottom:.7rem;line-height:1.4}
+        .option-summary{font-size:.8rem}
+        .option-example{font-size:.68rem;margin-bottom:.8rem;font-style:italic;color:var(--c-light)}
+        .result-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:1000;align-items:center;justify-content:center}
+        .result-modal.active{display:flex}
+        .result-content{background:var(--c-bg);border-radius:16px;padding:1.5rem;max-width:350px;width:90%;text-align:center;position:relative}
+        .result-close{position:absolute;top:.8rem;right:.8rem;background:0 0;border:0;font-size:1.3rem;cursor:pointer;color:var(--c-light);line-height:1;padding:0;width:1.8rem;height:1.8rem;display:flex;align-items:center;justify-content:center}
+        .result-close:hover{color:var(--c-text)}
+        .result-title{font-size:1.15rem;font-weight:700;color:var(--c-cyan);margin-bottom:.8rem}
+        .result-text{font-size:.82rem;color:var(--c-gray);line-height:1.5;margin-bottom:1.2rem}
+        footer,section{max-width:450px;margin:2rem auto 0;padding:1.5rem .5rem;border-top:1px solid var(--c-border)}
+        section h2{font-size:1.4rem;margin-bottom:1rem;color:var(--c-cyan-light);text-align:center}
+        section p{color:var(--c-gray);line-height:1.4;font-size:.88rem;text-align:center}
+        footer{padding:2rem .5rem;text-align:center}
+        footer p{font-size:.7rem;margin-bottom:.5rem}
+        footer p:first-child{color:var(--c-light)}
+        footer p:last-child{color:#9ca3af;margin-bottom:0}
+        .disclaimer-mt{margin-top:1.5rem}
+        @media(min-width:769px){h1{margin-top:15rem}}
+        @media(max-width:480px){h1{font-size:1.5rem}.subtitle{font-size:.82rem;line-height:1.3}.btn,.view-btn{padding:.75rem 1.6rem;font-size:.88rem}.option-card{padding:1.2rem .5rem}#interestSection h2{font-size:1.3rem}footer p:first-child{display:flex;flex-direction:column;align-items:center}footer .footer-line1,footer .footer-line2{display:block}}
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>市場情報<br>をAIで毎日自動整理</h1>
+        <p class="subtitle">毎日大量の市場情報に追われていませんか？AIが最新のニュース、決算、経済データを分析し、重要なポイントだけを5分で読める形式にまとめます。無料で始められる、シンプルな情報整理サービスです。</p>
+        
+        <button class="btn" id="openModal" aria-label="無料サンプル試読ページへスクロール">無料でサンプルを試読する</button>
+        
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><title>AI自動整理</title><circle cx="20" cy="20" r="15" fill="none" stroke="#4ade80" stroke-width="2"/><circle cx="20" cy="15" r="3" fill="#4ade80"/><path d="M12 25Q20 20 28 25" stroke="#4ade80" stroke-width="2" fill="none"/></svg>
+                </div>
+                <div class="feature-text">AI自動整理</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><title>毎日更新</title><rect x="8" y="10" width="24" height="20" rx="2" fill="none" stroke="#4ade80" stroke-width="2"/><path d="M8 16h24M15 23a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM20 23a1.5 1.5 0 110-3 1.5 1.5 0 010 3zM25 23a1.5 1.5 0 110-3 1.5 1.5 0 010 3z" stroke="#4ade80" stroke-width="2" fill="#4ade80"/></svg>
+                </div>
+                <div class="feature-text">毎日更新</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><title>5分で読める</title><circle cx="20" cy="20" r="15" fill="none" stroke="#4ade80" stroke-width="2"/><path d="M20 20V12M20 20h6" stroke="#4ade80" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <div class="feature-text">5分で読める</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">
+                    <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><title>完全無料</title><rect x="10" y="12" width="20" height="16" rx="2" fill="none" stroke="#4ade80" stroke-width="2"/><path d="M10 18h20" stroke="#4ade80" stroke-width="2"/><text x="20" y="25" font-size="8" fill="#4ade80" text-anchor="middle" font-weight="bold">FREE</text></svg>
+                </div>
+                <div class="feature-text">完全無料</div>
+            </div>
+        </div>
+        
+        <p class="disclaimer">※重要 本サービスは投資助言・銘柄推奨を行いません。AIによる情報整理・要約サービスの無料体験となります。投資判断はご自身の責任でお願いします。</p>
+        
+        <!-- Options Section from first modal -->
+        <div id="interestSection">
+            <h2>関心分野を選択</h2>
+            <div class="options">
+                <div class="option-card">
+                    <h3 class="option-title">安定重視・長期的視点</h3>
+                    <p class="option-summary">社会の基盤となる分野の情報を、長期的な視点から整理・分析します。インフラ整備、エネルギー政策、公共事業、生活必需品産業など、社会の安定性に直結する領域の動向を重点的に追跡します。</p>
+                    <p class="option-example">（例：インフラ、エネルギー、生活必需品、公共事業、政策動向）</p>
+                    <a href="#" class="view-btn" data-perspective="stable">▸ この視点のサンプルを見る</a>
+                </div>
+                <div class="option-card">
+                    <h3 class="option-title">バランス重視・機動的視点</h3>
+                    <p class="option-summary">変化に柔軟に対応する分野の動向を、多角的な視点から整理します。総合企業の事業ポートフォリオ、通信インフラの進化、消費トレンドの変化など、市場環境の変化に適応する企業や業界の情報を重点的に扱います。</p>
+                    <p class="option-example">（例：総合企業、通信、消費財、小売、サービス業）</p>
+                    <a href="#" class="view-btn" data-perspective="balance">▸ この視点のサンプルを見る</a>
+                </div>
+                <div class="option-card">
+                    <h3 class="option-title">成長重視・挑戦的視点</h3>
+                    <p class="option-summary">革新の最前線をリードする分野の情報を、成長機会とリスクの両面から整理します。先端テクノロジー、新興市場、ベンチャー企業、イノベーション創出領域など、将来の成長を牽引する可能性のある領域の動向を重点的に追跡します。</p>
+                    <p class="option-example">（例：先端テクノロジー、新興市場、ベンチャー、バイオテクノロジー、AI・機械学習）</p>
+                    <a href="#" class="view-btn" data-perspective="growth">▸ この視点のサンプルを見る</a>
+                </div>
+            </div>
+            <p class="disclaimer disclaimer-mt">※本サービスは投資助言・銘柄推奨を行いません。情報整理の参考サービスです。</p>
+        </div>
+        
+        <!-- 私たちの理念 -->
+        <section>
+            <h2>私たちの理念</h2>
+            <p>情報は、整理されてこそ価値があります。MarketSync AIは、散らばった市場情報をAIで分析し、意思決定を支える「澄んだ視点」としてお届けします。私たちは特定の結論を推奨せず、多忙なあなたが効率的に本質を見極めるための手がかりを提供することに専念しています。すべての分析は自動化され、AIが公開情報から重要度の高い要素を中立的に抽出・要約します。これは投資助言ではなく、情報リテラシーを高めるための新しいツールです。</p>
+        </section>
+    </div>
+    
+    <!-- 結果モーダル -->
+    <div class="result-modal" id="resultModal">
+        <div class="result-content">
+            <button class="result-close" id="closeModal">&times;</button>
+            <h3 class="result-title" id="resultTitle">サンプルを確認</h3>
+            <p class="result-text" id="resultText">選択された視点のサンプルを確認するには、以下のボタンからLINEで無料サンプルを受け取ってください。</p>
+            <a href="https://tokyoq.pro/UgioJO" target="_blank" rel="noopener noreferrer" class="result-btn" id="resultBtn">LINEで無料サンプルを受け取る</a>
+        </div>
+    </div>
+    
+    <!-- フッター -->
+    <footer>
+        <p><span class="footer-line1">本サービスは投資助言・銘柄推奨を行いません。</span><span class="footer-line2">情報整理の参考サービスです。</span></p>
+        <p>© 2026 MarketSync AI. All rights reserved.</p>
+    </footer>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17674936398"></script>
+    <script>
+        window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','AW-17674936398');
+        const d=document,g=d.getElementById.bind(d),m=g('openModal'),s=g('interestSection'),r=g('resultModal'),c=g('closeModal'),t=g('resultTitle'),x=g('resultText'),b=g('resultBtn'),p={stable:{title:'安定重視・長期的視点のサンプル',text:'安定重視・長期的視点のサンプルを確認するには、以下のボタンからLINEで無料サンプルを受け取ってください。インフラ、エネルギー、生活必需品、公共事業、政策動向などの情報を長期的な視点から整理したサマリーをお届けします。'},balance:{title:'バランス重視・機動的視点のサンプル',text:'バランス重視・機動的視点のサンプルを確認するには、以下のボタンからLINEで無料サンプルを受け取ってください。総合企業、通信、消費財、小売、サービス業などの情報を多角的な視点から整理したサマリーをお届けします。'},growth:{title:'成長重視・挑戦的視点のサンプル',text:'成長重視・挑戦的視点のサンプルを確認するには、以下のボタンからLINEで無料サンプルを受け取ってください。先端テクノロジー、新興市場、ベンチャー、バイオテクノロジー、AI・機械学習などの情報を成長機会とリスクの両面から整理したサマリーをお届けします。'}};
+        m&&s&&(m.onclick=e=>{e.preventDefault();s.scrollIntoView({behavior:'auto',block:'start'})});
+        r&&t&&x&&d.addEventListener('click',e=>{const n=e.target;if(n.classList.contains('view-btn')){e.preventDefault();const k=n.getAttribute('data-perspective');p[k]&&(t.textContent=p[k].title,x.textContent=p[k].text);r.classList.add('active');b&&gtag&&b.addEventListener('click',()=>gtag('event','conversion',{send_to:'AW-17674936398/49dgCJeAxuQbEM7AiOxB'}),{once:!0})}else(n===c||n===r)&&r.classList.remove('active')});
+    </script>
+</body>
+</html>
